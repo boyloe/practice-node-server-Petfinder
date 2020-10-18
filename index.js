@@ -25,6 +25,8 @@ const getToken = response => {
 const filterResponseForAnimalsWithPhotos = (response) => {
     return response.data.animals.filter(animal => animal.photos !== [] || animal.primary_photo_cropped !== null)
 }
+
+
 const showCatJson = (cats) => app.get('/', (_, res) => res.json(cats))
 axios.request(options).then(getToken).then(token => {
     axios.get('https://api.petfinder.com/v2/animals?type=cat&limit=100', {
